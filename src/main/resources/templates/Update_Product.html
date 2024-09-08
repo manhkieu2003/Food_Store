@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<link rel="stylesheet" href="" th:href="@{/css/Update_Product.css}" />
+</head>
+
+<body>
+		<a href="/admin/services">Back_To_Services</a>
+	<div class="updateProduct">
+		<h3 style="font-weight: bolder;color: seagreen;">UPDATE EXISTING PRODUCT :</h3>
+		<form action="" th:action="@{'/updatingProduct/'+${product.id}}" th:object="${product}" method="post" enctype="multipart/form-data">
+
+			<input type="hidden"  th:value="${product.id}" /><br />
+			Product_Name :
+			<input type="text" name="pname" th:value="${product.pname}" /> <br />
+			Product_Price :
+			<input type="text" name="pprice" th:value="${product.pprice}" /><br />
+			Product_Desc :
+			<input type="text" name="pdescription" th:value="${product.pdescription}" /><br />
+			<div>
+				<label for="category">Category</label>
+				<select id="category" name="category">
+					<option th:each="category:${categorys}" th:value="${category.id}" th:text="${category.name}"></option>
+				</select>
+			</div>
+
+<!--			Product_Desc : <br />-->
+<!--			<textarea name="pdescription" th:value="${product.pdescription}"  cols="10" rows="1">-->
+
+
+<!--	</textarea><br />-->
+			<input type="file" name="image"><br>
+			<img th:src="@{${product.pImage}}" alt="Product Image" width="150"><br>
+			<button type="submit">Update_Product</button>
+
+		</form>
+	</div>
+</body>
+
+</html>

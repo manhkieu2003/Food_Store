@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Success</title>
+    <link rel="stylesheet" href="" th:href="@{/css/OrderSuccess.css}" />
+
+
+</head>
+<body>
+<div class="container">
+    <div class="success-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="green" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8a8 8 0 1 1-16 0 8 8 0 0 1 16 0zM6.854 10.854l4.292-4.292a.5.5 0 0 0-.708-.708l-3.939 3.939-1.646-1.647a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0z"/>
+        </svg>
+    </div>
+    <h1>Thank you for your order!</h1>
+    <p>Your order has been successfully placed.</p>
+    <a href="/products" class="btn">Continue Shopping</a>
+    <a href="/user_order" class="btn">Your Order</a>
+
+</div>
+</body>
+</html>

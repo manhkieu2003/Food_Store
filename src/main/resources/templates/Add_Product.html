@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<link rel="stylesheet" href="" th:href="@{/css/Add_Product.css}" />
+</head>
+
+<body>
+<a href="/admin/services">Back to Services</a>
+	<div class="addProducts">
+		<h3 style="font-weight: bolder;color: seagreen;">ADD NEW PRODUCT :</h3>
+		<form action="" th:action="@{/addingProduct}" th:object="${product}" method="post" enctype="multipart/form-data">
+			Product_Name :
+			<input type="text" th:field="*{pname}" value="" placeholder="Enter Product Name....." /> <br />
+			Product_Price :
+			<input type="text" name="pprice" placeholder="Enter Product Price...." /><br />
+			Product_Desc : <br />
+			<textarea name="pdescription" id="" cols="15" rows="1"
+				placeholder="Enter Product Description.."></textarea><br />
+			<div>
+				<label for="category">Category</label>
+				<select id="category" name="category">
+					<option th:each="category : ${categorys}" th:value="${category.id}"  th:text="${category.name}"></option>
+				</select>
+			</div>
+
+			<label>Upload Image</label> <input type="file" name="image"
+											   class="form-control">
+
+			<button type="submit">Add_Product</button>
+
+		</form>
+	</div>
+</body>
+
+</html>

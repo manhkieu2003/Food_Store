@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders, Address, and Payment Type</title>
+    <link rel="stylesheet" href="" th:href="@{/css/Order.css}" />
+
+</head>
+<body>
+<div class="container">
+<!--    <h1>Checkout</h1>-->
+<!--    <form action="/save-order" method="post">-->
+<!--        <section class="address-section">-->
+<!--            <h2>Enter Shipping Address</h2>-->
+
+<!--            <div class="form-group">-->
+<!--                <label for="fullname">Full Name:</label>-->
+<!--                <input type="text" id="name" name="fullname" required>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <label for="address">Address:</label>-->
+<!--                <input type="text" id="address" name="address" required>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <label for="email">Email</label>-->
+<!--                <input type="text" id="email" name="email" required>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <label for="phone">Mobile Number</label>-->
+<!--                <input type="text" id="phone" name="phone" required>-->
+<!--            </div>-->
+
+
+<!--        </section>-->
+
+        <section class="orders-section">
+            <h2>My Orders</h2>
+            <table class="orders-table">
+                <thead>
+                <tr>
+                    <th>OrderId</th>
+                    <th>Date</th>
+                    <th>Product Details</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>Action</th>
+
+                    <!-- <th>Action</th> -->
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Sample order row -->
+                <tr th:each="o:${orders}">
+                    <td>[[${o.orderId}]]</td>
+                    <td>[[${o.orderDate}]]</td>
+                    <td>[[${o.product.pname}]]</td>
+                    <td>[[${o.quantity}]] </td>
+                    <td>[[${o.price}]]</td>
+                    <td>[[${o.status}]]</td>
+                    <td><th:block th:if="${o.status!='Cancel'}">
+                        <a th:href="@{'/update_status?id='+${o.id}+'&st=6' }"
+                           class="btn ">Cancel</a>
+                    </th:block> <th:block th:unless="${o.status!='Cancel'}">
+                        <a href="#" class="btn disabled" >Cancel</a>
+                    </th:block></td>
+
+<!--                    <td><a th:href="@{'/update_status?id='+${o.id}+'&st=6' }" class="btn">Cancel</a></td>-->
+
+                    <!-- <td><button class="btn">View Details</button></td> -->
+                </tr>
+                <!-- Add more rows here -->
+                </tbody>
+            </table>
+        </section>
+
+<!--        <section class="payment-section">-->
+
+<!--            &lt;!&ndash; <form action="/submit-payment" method="post"> &ndash;&gt;-->
+<!--            <div class="payment-option">-->
+<!--                <input type="radio" id="credit-card" name="paymentType" value="credit-card" required>-->
+<!--                <label for="credit-card">Credit Card</label>-->
+<!--            </div>-->
+<!--            <div class="payment-option">-->
+<!--                <input type="radio" id="paypal" name="paymentType" value="paypal">-->
+<!--                <label for="paypal">PayPal</label>-->
+<!--            </div>-->
+<!--            <div class="payment-option">-->
+<!--                <input type="radio" id="bank-transfer" name="paymentType" value="bank-transfer">-->
+<!--                <label for="bank-transfer">Bank Transfer</label>-->
+<!--            </div>-->
+<!--            <button type="submit" class="btn">Proceed to Payment</button>-->
+<!--            &lt;!&ndash; </form> &ndash;&gt;-->
+<!--        </section>-->
+<!--    </form>-->
+</div>
+</body>
+</html>

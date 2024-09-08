@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>TEA : LOGIN</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="" th:href="@{/css/Navigation.css}" />
+    <link rel="stylesheet" href="" th:href="@{/css/Login.css}" />
+</head>
+
+<body>
+<nav th:replace="~{Navigation::navbar()}">
+</nav>
+<div class="LoginContainer">
+    <div class="admin">
+        <div class="content">
+<!--            <strong style="font-size: 16px;margin-bottom: 0px;">BUSINESS</strong>-->
+            <h2> <span style="color:green;">Đăng nhập</span></h2>
+
+<!--            <form action="" th:action="@{/login}" method="post">-->
+           <form action="/login"  method="post">
+                <b>Email :</b>
+                <input type="email" name="username" placeholder="Enter email..." class="email"> <br />
+
+                <b> Password:</b>
+                <input type="password" name="password" placeholder="Enter password" class="password">
+<!--                <small style="color: red;" th:text="${error}"></small><br />-->
+<!--                <th:block th:if="${error}">-->
+<!--                    <th:block th:text="${error}"></th:block>-->
+<!--                </th:block>-->
+                <button type="submit" class="loginButton">Log in</button>
+            </form>
+        </div>
+    </div>
+<!--    <div class="user">-->
+<!--        <div class="content">-->
+<!--            <h2> For <span style="color:green;">Users</span></h2>-->
+<!--            <form action="" th:action="@{/login}" class="form" method="post">-->
+<!--                <b>Email :</b>-->
+<!--                <input type="email" name="username" placeholder="Enter email">-->
+<!--                &lt;!&ndash;		th:classappend="${#fields.hasErrors('userEmail')?'emailError':''}">&ndash;&gt;-->
+
+<!--                &lt;!&ndash;<div style="color: red;font-size: 16px;" class="emailError" th:each="e :${#fields.errors('userEmail')}" th:text="${e}">-->
+<!--                </div>&ndash;&gt; <br />-->
+
+
+<!--                <b> Password:</b>-->
+<!--                <input type="password" name="password" placeholder="Enter password" required maxlength="8"-->
+<!--                       minlength="4" class="userPassword">-->
+<!--                &lt;!&ndash;th:classappend="${#fields.hasErrors('userPassword')?'passwordError':'userPassword'}">&ndash;&gt;-->
+<!--                &lt;!&ndash;<div style="color: red;font-size: 16px;" class="passwordError" th:each="e :${#fields.errors('userPassword')}" th:text="${e}">-->
+<!--                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                <th:block th:if="${error}">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <th:block th:text="${error}"></th:block>&ndash;&gt;-->
+<!--&lt;!&ndash;                </th:block>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <small style="color: red;" th:text="${error2}"></small><br />&ndash;&gt;-->
+<!--                <button type="submit" class="loginButton">Log in</button><br>-->
+
+<!--                <p>I don't have account ? <a href="register.html" style="color: green;">Register Here</a></p>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+</div>
+</body>
+
+</html>
